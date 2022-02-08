@@ -17,7 +17,7 @@ public class PatrolLog : log
     }
 
     /*
-ss
+        Bro?
     */
     public override void targetDistance(){
         if(Vector3.Distance(target.position, transform.position) <= chaserad && Vector3.Distance(target.position, transform.position)> attackrad){

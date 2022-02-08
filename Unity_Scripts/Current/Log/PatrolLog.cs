@@ -16,6 +16,9 @@ public class PatrolLog : log
         
     }
 
+    /*
+ss
+    */
     public override void targetDistance(){
         if(Vector3.Distance(target.position, transform.position) <= chaserad && Vector3.Distance(target.position, transform.position)> attackrad){
             if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)

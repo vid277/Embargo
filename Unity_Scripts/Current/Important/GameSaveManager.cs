@@ -4,11 +4,12 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
+
 public class GameSaveManager : MonoBehaviour
 {
 
     public List<ScriptableObject> objects = new List<ScriptableObject>();
-
+    //Delets the persistent Data path
     public void ResetScriptables()
     {
         for(int i = 0; i < objects.Count; i ++)
@@ -21,7 +22,7 @@ public class GameSaveManager : MonoBehaviour
             }
         }
     }
-
+//loads and saves objects
     private void OnEnable()
     {
         LoadScriptables();
@@ -31,7 +32,7 @@ public class GameSaveManager : MonoBehaviour
     {
         SaveScriptables();
     }
-
+//Saves objects in a binary format
     public void SaveScriptables()
     {
         for (int i = 0; i < objects.Count; i ++)
@@ -44,7 +45,7 @@ public class GameSaveManager : MonoBehaviour
             file.Close();
         }
     }
-
+//Loads objects from binary format
     public void LoadScriptables()
     { 
         for(int i = 0; i < objects.Count; i ++)

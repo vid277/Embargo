@@ -1,4 +1,10 @@
-using System.Collections;
+
+/*
+
+@Author Vidyoot Senthilvenkatesh
+@Version 2/8/2022
+
+*/using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,7 +17,7 @@ public class Exit : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    //Allows the player to exit the game by pressing escape
     void FixedUpdate()
     {
         if (Input.GetButtonDown("escapething") || Input.GetButtonDown("escape2")){

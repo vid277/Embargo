@@ -1,8 +1,14 @@
+/*
+
+@Author Vidyoot Senthilvenkatesh
+@Version 2/10/2022
+
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/*Stores usernames in the leaderboard*/
 public class MenuNameStorage : MonoBehaviour
 {  
     public static string username1;

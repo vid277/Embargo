@@ -1,3 +1,9 @@
+/*
+
+@Author Vidyoot Senthilvenkatesh
+@Version 2/8/2022
+
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +27,8 @@ public class Sign : Interactable
     }
 
     // Update is called once per frame
+
+    /*Opens the sign when the player is close enough and presses space*/
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && playerInRange){
@@ -34,7 +42,7 @@ public class Sign : Interactable
             }
         }
     }
-
+/*Kicks the player out of the sign box when they get too far*/
     private void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("Player") && !other.isTrigger){
             context.callmethod();

@@ -1,3 +1,10 @@
+/*
+
+@Author Vidyoot Senthilvenkatesh
+@Version 2/8/2022
+
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +16,9 @@ public class MovingLog : log
         
     }
 
+  /*
+  Moves enemys towards the player if they are withing radius
+  */
     public override void targetDistance(){
         if(Vector3.Distance(target.position, transform.position) <= chaserad && Vector3.Distance(target.position, transform.position)> attackrad){
             if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)

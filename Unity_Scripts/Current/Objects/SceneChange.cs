@@ -1,3 +1,9 @@
+/*
+
+@Author Vidyoot Senthilvenkatesh
+@Version 2/8/2022
+
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,14 +20,14 @@ public class SceneChange : MonoBehaviour
     public float fadeWait;
     public FloatValue heartcont;
     public FloatValue playerCurrentHealth;
-
+/*Creates the default scene*/
     private void Awake(){
         if(FadeInPanel != null){
             GameObject panel = Instantiate(FadeInPanel, Vector3.zero, Quaternion.identity) as GameObject;
             Destroy(panel, 1);
         }
     }   
-
+/*Fades into a different scene when the player collides with the scene change collider*/
     public void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player") && !other.isTrigger){
             playerobjectscriptable.initialValue = positionofplayer;

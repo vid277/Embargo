@@ -1,3 +1,9 @@
+/*
+
+@Author Vidyoot Senthilvenkatesh
+@Version 2/8/2022
+
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -48,7 +54,7 @@ public class Chest : Interactable
             chest.SetActive(false);
         }
     }
-
+/*Allows the player to open the chest*/
     public void openingthechest(){
         dialogBox.SetActive(true);
         dialogText.text = contents.itemDescription;
@@ -59,7 +65,7 @@ public class Chest : Interactable
         context.callmethod();
         anim.SetBool("opened", true);
     }
-
+/*Detects if the player is in range of the chest*/
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player") && !other.isTrigger &&!isOpen){
             context.callmethod();

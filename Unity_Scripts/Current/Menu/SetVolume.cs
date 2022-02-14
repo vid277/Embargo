@@ -1,3 +1,10 @@
+
+/*
+
+@Author Vidyoot Senthilvenkatesh
+@Version 2/8/2022
+
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +18,7 @@ public class SetVolume : MonoBehaviour
 
     [SerializeField]
     private string volumeName;
-
+/*Allows the player to change the volume*/
     void Awake()
     {
         if (PlayerPrefs.HasKey("volume"))

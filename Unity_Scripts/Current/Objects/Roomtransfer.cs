@@ -1,3 +1,9 @@
+/*
+
+@Author Vidyoot Senthilvenkatesh
+@Version 2/8/2022
+
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,7 +31,7 @@ public class Roomtransfer : MonoBehaviour
     {
         
     }
-
+/*Switches the player to different rooms when they reach the room barrier*/
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player") && !other.isTrigger){
             cam.minPosition += CamChange;

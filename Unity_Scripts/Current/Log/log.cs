@@ -1,3 +1,9 @@
+/*
+
+@Author Vidyoot Senthilvenkatesh
+@Version 2/8/2022
+
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +32,9 @@ public class log : Enemy
     {
         targetDistance();
     }
-
+/*
+Detects if the player is close to the enemy and turns enemys out of idle animation
+*/
     public virtual void targetDistance(){
         if(Vector3.Distance(target.position, transform.position) <= chaserad && Vector3.Distance(target.position, transform.position)> attackrad){
             if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
@@ -42,12 +50,17 @@ public class log : Enemy
             anim.SetBool("wakeup", false);
         }
     }
-
+/*
+Starts the moving animation
+*/
     private void setVec(Vector2 setVector){
         anim.SetFloat("moveX", setVector.x);
         anim.SetFloat("moveY", setVector.y);
     }
 
+/*
+Moves the animation 
+*/
     public void changingAnimations(Vector2 direction){
         if (Mathf.Abs(direction.x)>Mathf.Abs(direction.y)){
             if(direction.x > 0){

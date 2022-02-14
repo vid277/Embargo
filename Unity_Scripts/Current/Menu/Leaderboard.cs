@@ -1,3 +1,10 @@
+/*
+
+@Author Vidyoot Senthilvenkatesh
+@Version 2/8/2022
+
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,10 +29,12 @@ public class Leaderboard : MonoBehaviour
     public string score2;
     public int tries;
     
+    /*Gets the score when the player dies*/
     private void Update() {
         score1 = PlayerPrefs.GetString("Score");
     }
 
+/*Sets the player's score to their username*/
     void Awake() {
 
         if (!showscore.activeInHierarchy){
@@ -65,7 +74,7 @@ public class Leaderboard : MonoBehaviour
             }
         }
     }
-
+/*Displays the leaderboard with the score*/
     public IEnumerator someco(){
         for(int i = 0; i < texttype.Length; i++){
             currenttyping = texttype.Substring(0,i);

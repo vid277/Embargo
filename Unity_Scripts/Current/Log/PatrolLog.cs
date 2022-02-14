@@ -17,7 +17,7 @@ public class PatrolLog : log
     }
 
     /*
-        Bro?
+        Detects if the player is close and starts the animation and moves the enemy towars the player
     */
     public override void targetDistance(){
         if(Vector3.Distance(target.position, transform.position) <= chaserad && Vector3.Distance(target.position, transform.position)> attackrad){
@@ -30,7 +30,9 @@ public class PatrolLog : log
                 anim.SetBool("wakeup",true);
             }
         } else if (Vector3.Distance(target.position, transform.position) > chaserad){
-
+/*
+Moves enemies toward the palyer without activation the animation
+*/
             if (Vector3.Distance(transform.position, path[currentPoint].position) > roundingDistance){
 
                 Vector3 temp = Vector3.MoveTowards(transform.position, path[currentPoint].position, Speed * Time.deltaTime);
@@ -43,6 +45,7 @@ public class PatrolLog : log
         }
     }
 
+/*Moves the enemy back and forth */
     public void ChangeGoal(){
         if (currentPoint == path.Length - 1){
             currentPoint = 0;
@@ -54,7 +57,8 @@ public class PatrolLog : log
         }
     }
 
-    public void setcurrentpoint(int point){
+   
+     public void setcurrentpoint(int point){
         /*if (currentPoint == path.Length - 1){
             currentPoint = 0;
             currentGoal = path[0];

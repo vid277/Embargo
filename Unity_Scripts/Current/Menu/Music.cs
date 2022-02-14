@@ -1,4 +1,10 @@
-using System.Collections;
+
+/*
+
+@Author Vidyoot Senthilvenkatesh
+@Version 2/8/2022
+
+*/using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,6 +26,7 @@ public class Music : MonoBehaviour
 
     [SerializeField]
     private Text volumeLabel;
+    /*Creates the volume slider*/
     private void Start() {
         updateval(slider.value);
 
@@ -29,6 +36,7 @@ public class Music : MonoBehaviour
         }
 );
     }
+/*Changes the volume based on the slider*/
     public void updateval(float value){
         if (mixer != null){
             mixer.SetFloat(volumeName, Mathf.Log(value)*20f);

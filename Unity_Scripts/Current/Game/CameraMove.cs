@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Moves the camera to follow the player
 public class CameraMove : MonoBehaviour
 {
     public Transform target;

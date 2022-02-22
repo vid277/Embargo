@@ -1,3 +1,9 @@
+/*
+
+@Author Vidyoot Senthilvenkatesh
+@Version 2/21/2022
+
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,7 +41,7 @@ public class Player_move : MonoBehaviour
         animator.SetFloat("moveY", -1);
         transform.position = positiontostart.initialValue;
     }
-
+/*Allows the player to move*/
     void Update()
     {
         if(currentState == PlayerState.interact)
@@ -52,7 +58,7 @@ public class Player_move : MonoBehaviour
            updateAnimAndMove(); 
         }
     }
-    
+    /*Allows the player to attack and animates it*/
     private IEnumerator Attackco(){
         animator.SetBool("attacking", true);
         currentState = PlayerState.attack;
@@ -63,7 +69,7 @@ public class Player_move : MonoBehaviour
             currentState = PlayerState.walk;
         }
     }
-
+/*Animates the player when items are picked up and allows the player to pick up items*/
     public void RaiseItem(){
         if (playerInventory.currentItem != null){
             if (currentState != PlayerState.interact){
@@ -79,7 +85,7 @@ public class Player_move : MonoBehaviour
             }
         }
     }
-
+/*Animates the player while moving*/
     void updateAnimAndMove(){
         if (change != Vector3.zero){
             MoveCharacter();
@@ -92,7 +98,7 @@ public class Player_move : MonoBehaviour
             animator.SetBool("moving", false);
         }
     }
-    
+    /*Changes the speed when the player moves*/
     void MoveCharacter()
     {  
         change.Normalize();
@@ -100,7 +106,7 @@ public class Player_move : MonoBehaviour
             transform.position + change * speed * Time.deltaTime
         );
     }
-
+/*Allows the player to take damage when hit and get knocked back*/
     public void knock(float KnockTime, float damage){
         currentHealth.runtimevalue -= damage;   
         playerHealthSignal.callmethod();

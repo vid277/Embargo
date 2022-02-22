@@ -1,3 +1,9 @@
+/*
+
+@Author Vidyoot Senthilvenkatesh
+@Version 2/21/2022
+
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,11 +26,11 @@ public class Enemy : MonoBehaviour
     public int enemypoints;
     public static int score;
 
-    
+    /*Sets the default health*/
     private void Awake() {
         health = maxHealth.initialValue;
     }
-
+/*Allows the zombie to take damage and kills and plays the death animation when the health is below 0*/
     private void damages(float damage){
         health = health - damage;
         if(health <= 0){
@@ -33,14 +39,14 @@ public class Enemy : MonoBehaviour
             score = score + enemypoints;
         }
     }
-
+/*Removes the enemy when it is killed*/
     private void DeathEffect(){
         if(deathEffect != null){
             GameObject death = Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(death, 1f);
         }
     }
-
+/*Knocks the enemy back when hit*/
     public void knock(Rigidbody2D myRigidBody, float knockingtime, float damage){
         StartCoroutine(Knockbacking(myRigidBody, knockingtime));
         damages(damage);

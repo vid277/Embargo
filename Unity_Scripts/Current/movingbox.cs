@@ -1,3 +1,9 @@
+/*
+
+@Author Vidyoot Senthilvenkatesh
+@Version 2/21/2022
+
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,3 +22,4 @@ public class movingbox : MonoBehaviour
         }    
     }*/
 }
+/*This mechanic is unfinished*/

@@ -44,9 +44,13 @@ public class Player_move : MonoBehaviour
         animator.SetFloat("moveY", -1);
         transform.position = positiontostart.initialValue;
     }
-/**
-*Moves the player on a 2D plane and changes the state of the player. Also detects when the player is attacking.
-**/
+
+    /*
+    * Allows the player to move by recieving input through the Unity Input manager
+    * Checks the state of the player, and makes the corresponding actions
+    * Runs once per frame to update player actions live
+    */
+
     void Update()
     {
         if(currentState == PlayerState.interact)

@@ -1,8 +1,7 @@
 /*
-
-@Author Vidyoot Senthilvenkatesh
-@Version 2/21/2022
-
+    Controls the player's health and lowers it when the player takes damage.
+    @Author Vidyoot Senthilvenkatesh
+    @Version 2/21/2022
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -23,7 +22,10 @@ public class Hearts : MonoBehaviour
     void Awake(){   
         initialHeartsCounts();
     }
-    /*Sets the initial heart value*/
+
+    /**
+    *   Sets the initial heart value
+    */
     public void initialHeartsCounts(){
         for (int i = 0; i < heartcont.runtimevalue; i++){
             hearts[i].gameObject.SetActive(true);
@@ -31,7 +33,10 @@ public class Hearts : MonoBehaviour
             changehearts();
         }
     }
-/*Allows the player to lose hearts and kills the player when 0 hearts are left*/
+
+    /**
+    *   Allows the player to lose hearts and kills the player when 0 hearts are left
+    */
     public void changehearts(){
             float tempHealth = playerCurrentHealth.runtimevalue/2;
 

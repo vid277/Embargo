@@ -14,7 +14,6 @@ public class Awaken : MonoBehaviour
         Time.timeScale = 1;  
         anim.SetBool("moving", false);  
         anim.SetBool("attacking", false);  
-        anim.SetBool("dying", false);  
         anim.SetBool("hurt", false);  
     }
 

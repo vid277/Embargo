@@ -29,6 +29,7 @@ public class Interactable : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("Player") && !other.isTrigger){
             context.callmethod();
+            playerInRange = false;
         }
     }
 }

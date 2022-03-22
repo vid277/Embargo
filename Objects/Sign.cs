@@ -21,7 +21,7 @@ public class Sign : Interactable
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && playerInRange){
             if (dialogueBox.activeInHierarchy)

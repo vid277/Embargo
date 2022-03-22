@@ -1,21 +1,30 @@
+using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoundryNPC : Interactable
+public class BoundryNPC : Sign
 {
     private Vector3 directions;
     private Transform transformNPC;
     public float speed;
     private Rigidbody2D myRigidBody;
     private Animator anim;
-
     public Collider2D bounds;
+    public float minMoveTime;
+    public float maxMoveTime;
+    public float minWaitTime;
+    public float maxWaitTime;
+    private float moveTimeSeconds;
+    private float waitTimeSeconds;
+    private bool checkMoving;
     void Awake()
     {
         transformNPC = GetComponent<Transform>();
         myRigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        waitTimeSeconds = Random.Range(minWaitTime, maxWaitTime);
+        moveTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
         changeDirection();
     }
 
@@ -54,17 +63,44 @@ public class BoundryNPC : Interactable
         anim.SetFloat("MoveY", directions.y);
     }
 
-    void OnCollisionEnter2D(Component other){
+    void OnCollisionEnter2D(Collision2D other){
         Vector3 position = directions;
         changeDirection();
         int tries = 0;
-        while (directions == position && loops < 100){
+        while (directions == position && tries < 50){
             changeDirection();
-            loops++;
+            tries++;
         }
     }
-    void Update()
+    public override void Update()
     {
-        moveNPC();
+        base.Update();
+        if (checkMoving){
+            moveTimeSeconds -= Time.deltaTime;
+            if (moveTimeSeconds <= 0){
+                moveTimeSeconds = Random.Range(minMoveTime, maxMoveTime);
+                checkMoving = false;
+            }
+            if (!playerInRange){
+                moveNPC();
+            }
+        }
+        else {
+            waitTimeSeconds -= Time.deltaTime;
+            if (waitTimeSeconds <= 0){
+                differentDirection();
+                checkMoving = true;
+                waitTimeSeconds = Random.Range(minWaitTime, maxWaitTime);
+            }
+        }
+    }
+    public void differentDirection(){
+        Vector3 position = directions;
+        changeDirection();
+        int tries = 0;
+        while (directions == position && tries < 50){
+            changeDirection();
+            tries++;
+        }
     }
 }

@@ -28,7 +28,9 @@ public class Sign : Interactable
 
     // Update is called once per frame
 
-    /*Opens the sign when the player is close enough and presses space*/
+    /**
+     * Opens the sign when the player is close enough and presses space
+     **/
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && playerInRange){
@@ -42,7 +44,10 @@ public class Sign : Interactable
             }
         }
     }
-/*Kicks the player out of the sign box when they get too far*/
+/**
+ * Kicks the player out of the sign box when they get too far
+ * @param other Sets the collider for when the player is in range.
+ **/
     private void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("Player") && !other.isTrigger){
             context.callmethod();

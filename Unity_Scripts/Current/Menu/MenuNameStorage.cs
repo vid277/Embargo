@@ -8,7 +8,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-/*Stores usernames in the leaderboard*/
+
+/**
+ * Stores usernames in a string 
+ * @param string This stores the imputed the username into a string.
+ **/
 public class MenuNameStorage : MonoBehaviour
 {  
     public static string username1;

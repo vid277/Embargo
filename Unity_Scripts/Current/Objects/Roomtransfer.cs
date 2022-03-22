@@ -31,7 +31,10 @@ public class Roomtransfer : MonoBehaviour
     {
         
     }
-/*Switches the player to different rooms when they reach the room barrier*/
+    /**
+     *Transfers the player to a different area. Creates a x and y change value that teleports the player to the desired location.
+     *@param other This is collider that the player must contact to trigger the transition. 
+    **/
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player") && !other.isTrigger){
             cam.minPosition += CamChange;
@@ -42,7 +45,10 @@ public class Roomtransfer : MonoBehaviour
             }
         }
     }
-
+    /**
+     * Displays the name of zone the player has transfered too.
+     * @return int This is the time that the name is displayed for.
+     **/
     private IEnumerator placeNameCo(){
         text.SetActive(true);
         placeText.text = textInput;

@@ -23,7 +23,9 @@ public class pot : MonoBehaviour
     {
         
     }
-/*Allows the player to destroy the pots and activates the break animation*/
+    /**
+     * Allows the player to destroy the pots and activates the break animation. Removes the pots after .3 seconds.
+     **/
     public void destroy(){
         anim.SetBool("break", true);
         StartCoroutine(breakco());

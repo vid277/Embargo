@@ -1,3 +1,10 @@
+/* Creates a scriptable object that has tries, names, and scores
+
+@Author Vidyoot Senthilvenkatesh
+@Version 2/8/2022
+
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +21,10 @@ public class CameraMove : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    /**
+     *  Update is called once per frame. The position of the camera changes to follow the camera so that the camera is always above the player
+     * **/
+
     void LateUpdate() {
         if (transform.position != target.position){
             Vector3 targetpos = new Vector3 (target.position.x,

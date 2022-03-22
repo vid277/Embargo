@@ -26,7 +26,9 @@ public class Music : MonoBehaviour
 
     [SerializeField]
     private Text volumeLabel;
-    /*Creates the volume slider*/
+    /**
+     * Creates the volume slider
+     **/
     private void Start() {
         updateval(slider.value);
 
@@ -36,7 +38,10 @@ public class Music : MonoBehaviour
         }
 );
     }
-/*Changes the volume based on the slider*/
+    /**
+     * Changes the volume based on the volume slider
+     * @param Float This is the value that the volume takes
+     **/
     public void updateval(float value){
         if (mixer != null){
             mixer.SetFloat(volumeName, Mathf.Log(value)*20f);
@@ -51,6 +56,12 @@ public class Music : MonoBehaviour
         }
     }
 
+
+    /**
+     *Sets the game volue based on the volume choosen by the player 
+     *@param float This is the volume that the game is on.
+     **/
+    
     public void SetGameVolume(float volume) {
         AudioListener.volume = volume;
  

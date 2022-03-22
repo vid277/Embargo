@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class UpdateScore : MonoBehaviour
 {
     public Text scorevalue;
-/*Sets the default socre value*/
+    /**
+     * Sets the player score to the assigned value when the player is playing and set it to zero when the player is not playing.
+     **/
     void Awake(){
         if (PlayerPrefs.HasKey("Score")){
             scorevalue.text = PlayerPrefs.GetString("Score");
@@ -15,7 +17,9 @@ public class UpdateScore : MonoBehaviour
             scorevalue.text = "0";
         }
     }
-/*Increases the player's score*/
+    /**
+     * Increases the player's score after they kill and enemy based on the score each enemy gives.
+     **/
     void Update(){
         scorevalue.text = (Enemy.score).ToString();
         PlayerPrefs.SetString("Score", (Enemy.score).ToString());

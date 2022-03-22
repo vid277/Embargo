@@ -47,14 +47,19 @@ public class Chest : Interactable
         StartCoroutine(Knockbacking(chest, time));  
     }
 
-//Supposed to deactivate the chest after a certain amount of time
+    /**
+     * Supposed to deactivate the chest after a certain amount of time
+     * @param float The time that the chest is open
+     **/
     private IEnumerator Knockbacking(GameObject chest, float time){
         if(chest != null){
             yield return new WaitForSeconds(time);
             chest.SetActive(false);
         }
     }
-/*Allows the player to open the chest*/
+    /**
+     *Allows the player to open the chest
+    **/
     public void openingthechest(){
         dialogBox.SetActive(true);
         dialogText.text = contents.itemDescription;
@@ -65,13 +70,21 @@ public class Chest : Interactable
         context.callmethod();
         anim.SetBool("opened", true);
     }
-/*Detects if the player is in range of the chest*/
+    /**
+     * Detects if the player is in range of the chest
+     * @param other This is the range box for if the player is in range of the box.
+     **/
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player") && !other.isTrigger &&!isOpen){
             context.callmethod();
             playerInRange = true;
         }    
     }
+
+    /**
+     * Detects if the player is on the chest and stops the player from walking ontop of it
+     * @param other The hitbox of the chest that the player can't walk on.
+     **/
 
     private void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("Player") && !other.isTrigger &&!isOpen){

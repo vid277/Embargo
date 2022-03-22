@@ -32,9 +32,9 @@ public class log : Enemy
     {
         targetDistance();
     }
-/*
-Detects if the player is close to the enemy and turns enemys out of idle animation
-*/
+    /*
+    Detects if the player is close to the enemy and turns enemys out of idle animation
+    */
     public virtual void targetDistance(){
         if(Vector3.Distance(target.position, transform.position) <= chaserad && Vector3.Distance(target.position, transform.position)> attackrad){
             if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
@@ -50,17 +50,18 @@ Detects if the player is close to the enemy and turns enemys out of idle animati
             anim.SetBool("wakeup", false);
         }
     }
-/*
-Starts the moving animation
-*/
+
+    /*
+    Starts the moving animation
+    */
     private void setVec(Vector2 setVector){
         anim.SetFloat("moveX", setVector.x);
         anim.SetFloat("moveY", setVector.y);
     }
 
-/*
-Moves the animation 
-*/
+    /*
+    Moves the animation 
+    */
     public void changingAnimations(Vector2 direction){
         if (Mathf.Abs(direction.x)>Mathf.Abs(direction.y)){
             if(direction.x > 0){

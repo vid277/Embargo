@@ -1,3 +1,4 @@
+//This feature is still in development
 /*
 
 @Author Vidyoot Senthilvenkatesh
@@ -26,7 +27,9 @@ public class Door : Interactable
     public BoxCollider2D physicsCollider;
     public GameObject mybody;
     public GameObject arrow;
-/*Allows the player to go through the door if the player has a key*/
+
+    /*Allows the player to go through the door if the player has a key*/
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space))
@@ -41,7 +44,9 @@ public class Door : Interactable
             }
         }
     }
-/*Sets the open door properties*/
+
+    /*Sets the open door properties*/
+
     public void Open()
     {
         doorSprite.enabled = false;
@@ -56,3 +61,4 @@ public class Door : Interactable
 
     }
 }
+

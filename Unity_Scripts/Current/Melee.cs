@@ -10,7 +10,11 @@ using UnityEngine;
 
 public class Melee : log
 {
-        /*Moves enemies toward the player and lets the enemeies attack the player when within range*/
+        /**
+         * Moves enemies toward the player and lets the enemeies attack the player when within range
+         * @param temp Changes the animation of the zombie from idle to walking.
+         * @param state Changes the state of the zombie to wallking.
+         **/
     public override void targetDistance(){
         if(Vector3.Distance(target.position, transform.position) <= chaserad && Vector3.Distance(target.position, transform.position)> attackrad){
             if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
@@ -28,6 +32,11 @@ public class Melee : log
                 }   
         }
     }
+    
+    /**
+     *Defines that attack function. Activates the attack animation for 0.6 secionds then deactivates it
+     @return float This is the time that the attack animation if played for
+    **/
 
     public IEnumerator attackco(){
         currentState = EnemyState.attack;

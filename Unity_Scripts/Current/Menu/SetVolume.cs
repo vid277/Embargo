@@ -18,7 +18,9 @@ public class SetVolume : MonoBehaviour
 
     [SerializeField]
     private string volumeName;
-/*Allows the player to change the volume*/
+    /**
+     * Sets the game volue to the volume choosen by the player.
+     **/
     void Awake()
     {
         if (PlayerPrefs.HasKey("volume"))

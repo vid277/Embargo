@@ -36,4 +36,12 @@ public class MenuScreen : MonoBehaviour
     public void quitgame(){
         Application.Quit();
     }
+
+    public void SwitchSceneCheat1(){
+        SceneManager.LoadScene("Level1");
+    }
+
+    public void SwitchSceneCheat2(){
+        SceneManager.LoadScene("Level2");
+    }
 }

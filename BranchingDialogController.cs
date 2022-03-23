@@ -1,4 +1,7 @@
-using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.IO.Pipes;
+using System.Threading;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +15,8 @@ public class BranchingDialogController : MonoBehaviour
     [SerializeField] private Story myStory;
     [SerializeField] private GameObject dialogContainer;
     [SerializeField] private GameObject choiceContainer;
-
+    [SerializeField] private ScrollRect dialogScroll;
+    [SerializeField] private GameObject NPC;
 
     void Start()
     {
@@ -22,7 +26,6 @@ public class BranchingDialogController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void EnableCanvas(){
@@ -33,6 +36,7 @@ public class BranchingDialogController : MonoBehaviour
 
     public void SetStory(){
         if (dialogValue.value){
+            DeleteDialogs();
             myStory = new Story(dialogValue.value.text);
         }
         else {
@@ -42,6 +46,7 @@ public class BranchingDialogController : MonoBehaviour
 
     public void RefreshView(){
         while(myStory.canContinue){
+            //DeleteDialogs();
             MakeNewDialog(myStory.Continue());
         }
         if (myStory.currentChoices.Count > 0){
@@ -49,7 +54,19 @@ public class BranchingDialogController : MonoBehaviour
         }
         else {
             branchingCanvas.SetActive(false);
+            NPC.SetActive(false);
+            //StartCoroutine(pauseCo());
         }
+        StartCoroutine(Scrolling());
+    }
+
+    private IEnumerator pauseCo(){
+        yield return new WaitForSeconds(1.5f);
+        branchingCanvas.SetActive(false);
+    }
+    private IEnumerator Scrolling(){
+        yield return null;
+        dialogScroll.verticalNormalizedPosition = 0f;
     }
 
     void MakeNewDialog(string newDialog){
@@ -57,6 +74,11 @@ public class BranchingDialogController : MonoBehaviour
         newDialogObject.Setup(newDialog);
     }
 
+    void DeleteDialogs(){
+        for (int i = 0; i < choiceContainer.transform.childCount; i++){
+            Destroy(dialogContainer.transform.GetChild(i).gameObject);
+        }
+    }
     void MakeNewResponse(string newDialog, int choiceValue){
         ButtonObject newResponseObject = Instantiate(choicePrefab, choiceContainer.transform).GetComponent<ButtonObject>();
         newResponseObject.Setup(newDialog, choiceValue);
@@ -75,6 +97,7 @@ public class BranchingDialogController : MonoBehaviour
         for (int i = 0; i < myStory.currentChoices.Count; i++){
             MakeNewResponse(myStory.currentChoices[i].text, i);
         }
+        
     }
 
     void ChooseChoice(int choice){

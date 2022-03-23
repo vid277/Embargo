@@ -41,7 +41,7 @@ public class Roomtransfer : MonoBehaviour
     private IEnumerator placeNameCo(){
         text.SetActive(true);
         placeText.text = textInput;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         text.SetActive(false);
     }
 }

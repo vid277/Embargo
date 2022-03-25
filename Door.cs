@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum DoorType
 {
@@ -18,7 +19,10 @@ public class Door : Interactable
     public SpriteRenderer doorSprite;
     public BoxCollider2D physicsCollider;
     public GameObject mybody;
-    public GameObject arrow;
+    public GameObject showscore;
+    public Text textbox;
+    public string texttype;
+    public float speed;
 
     private void Update()
     {
@@ -31,6 +35,10 @@ public class Door : Interactable
                     playerInventory.keycount--;
                     Open();
                 }
+                else if (playerInventory.keycount == 0) {
+                    showscore.SetActive(true);
+                    StartCoroutine(someco());
+                }
             }
         }
     }
@@ -41,11 +49,15 @@ public class Door : Interactable
         open = true;
         physicsCollider.enabled = false;
         mybody.SetActive(false);
-        arrow.SetActive(true);
     }
 
-    public void Close()
-    {
-
+    public IEnumerator someco(){
+        for(int i = 0; i < texttype.Length; i++){
+            string currenttyping = texttype.Substring(0,i);
+            textbox.text = currenttyping;
+            yield return new WaitForSeconds(speed);
+        }
+        yield return new WaitForSeconds(3.5f);
+        showscore.SetActive(false);
     }
 }

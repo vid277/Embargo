@@ -63,6 +63,7 @@ public class log : Enemy
             }
         }
     }
+    
     public void ChangingState(EnemyState newState){
         if(currentState != newState){
             currentState = newState;

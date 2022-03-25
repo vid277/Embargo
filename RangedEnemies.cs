@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class King : log{
-    
+public class RangedEnemies : log
+{
     public GameObject projectile;
     public bool enableFiring;
     public float delay;
     private float delayInSeconds;
-    public float speed;
-    public float time;
 
     void Update(){
         delayInSeconds -= Time.deltaTime;
@@ -18,6 +16,7 @@ public class King : log{
             delayInSeconds = delay;
         } 
     }
+
     public override void targetDistance(){
         if(Vector3.Distance(target.position, transform.position) <= chaserad && Vector3.Distance(target.position, transform.position)> attackrad){
             if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
@@ -27,7 +26,7 @@ public class King : log{
                     Vector3 tempVector = target.transform.position - transform.position;
                     changingAnimations(target.transform.position - transform.position);
                     GameObject current = Instantiate(projectile, transform.position, Quaternion.identity);
-                    current.GetComponent<Rigidbody2D>().velocity = speed * tempVector;
+                    current.GetComponent<Projectile>().shoot(tempVector);
                     enableFiring = false;
                     ChangingState(EnemyState.walk);
                 }

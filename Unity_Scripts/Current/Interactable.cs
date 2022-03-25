@@ -24,14 +24,17 @@ public class Interactable : MonoBehaviour
     {
         
     }
-/*Creates a blueprint for an interactable object*/
+    /**
+     * Detects if the player is in range of the interactable
+     * @param other This is the distance the player has to be from the interactable to see it.
+     **/
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player") && !other.isTrigger){
             context.callmethod();
             playerInRange = true;
         }    
     }
-
+    
     private void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("Player") && !other.isTrigger){
             context.callmethod();

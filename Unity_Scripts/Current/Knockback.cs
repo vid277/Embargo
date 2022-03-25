@@ -14,12 +14,17 @@ public class Knockback : MonoBehaviour
     public float time;
     public float damage;
 
-    /*Destroys breakable objects when it is hit*/
+    /**
+     * Destroys breakable objects when it is hit
+     * @param other This is hitbox of the object.
+     **/
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.CompareTag("breakable") && this.gameObject.CompareTag("hitboxes")){
             other.GetComponent<pot>().destroy();
         }
-            /*Defines the knockback mechanic for players and enemies*/
+            /**
+             * Defines the knockback mechanic for players and enemies. When entities are hit, they are moved back a distance based on the entity that hit them.
+            **/
         if(other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Player")){
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
             Vector2 difference = hit.transform.position - transform.position;

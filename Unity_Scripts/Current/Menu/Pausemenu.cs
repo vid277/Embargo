@@ -17,7 +17,9 @@ public class Pausemenu : MonoBehaviour
     public GameObject pausing;
 
     public GameObject blur;
-/*Pauses the game when the player presses escape*/
+    /**
+     * Pauses the game when the player presses escape. 
+     **/
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)){
@@ -44,11 +46,15 @@ public class Pausemenu : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
-/*Loads the menu*/
+    /**
+     * Returns the player to the menu when they press the menu button.
+     **/
     public void LoadMenu(){
         SceneManager.LoadScene("MenuScreen");
     }
-/*Exits the game*/
+    /**
+     * Exits the game when the player presses the button.
+     **/
     public void Exit(){
         Application.Quit();
     }

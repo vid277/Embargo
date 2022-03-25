@@ -29,12 +29,16 @@ public class Leaderboard : MonoBehaviour
     public string score2;
     public int tries;
     
-    /*Gets the score when the player dies*/
+    /**
+     * Gets the score when the player dies
+     **/
     private void Update() {
         score1 = PlayerPrefs.GetString("Score");
     }
 
-/*Sets the player's score to their username*/
+    /**
+     * Sets the player's score to their username
+     **/
     void Awake() {
 
         if (!showscore.activeInHierarchy){
@@ -74,7 +78,11 @@ public class Leaderboard : MonoBehaviour
             }
         }
     }
-/*Displays the leaderboard with the score*/
+
+    /**
+     * Displays the leaderboard with the score after waiting for 1.5 seconds.
+     **/
+
     public IEnumerator someco(){
         for(int i = 0; i < texttype.Length; i++){
             currenttyping = texttype.Substring(0,i);

@@ -17,7 +17,9 @@ public class Exit : MonoBehaviour
         
     }
 
-    //Allows the player to exit the game by pressing escape
+    /**
+     * Allows the player to exit the game by pressing escape.
+     **/
     void FixedUpdate()
     {
         if (Input.GetButtonDown("escapething") || Input.GetButtonDown("escape2")){

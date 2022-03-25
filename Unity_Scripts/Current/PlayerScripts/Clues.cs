@@ -1,8 +1,8 @@
-/*
+/**
+    This class procces when the user is near a context clue such as a sign and renders a sprite above the character
 
-@Author Vidyoot Senthilvenkatesh
-@Version 2/21/2022
-
+    @Author Vidyoot Senthilvenkatesh
+    @Version 2/21/2022
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -14,6 +14,10 @@ public class Clues : MonoBehaviour
     public GameObject contextClues;
     public bool contextActive = false;
 
+
+    /**
+    * This is used to activate and deactivate clues based upon whether the player is within range of the trigger.
+    */
     public void ChangeContext() {
         contextActive = !contextActive;
         if(contextActive){

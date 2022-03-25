@@ -10,7 +10,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-/*Loads the leaderboard UIs*/
+    /**
+     * Loads the leaderboard UIs based on what mode the player chooses
+     **/
 public class MenuScreen : MonoBehaviour
 {
     public static int Numberoftries = 0;
@@ -22,7 +24,9 @@ public class MenuScreen : MonoBehaviour
     public void Multiplayer(){
         SceneManager.LoadScene("Multiplayer");
     }
-/*Makes the retry, return, and quit buttons*/
+    /**
+     * Loads the scene after the player retrys and resets the player's scores. Also adds  to the number of tries
+    **/
     public void Retry(){
         SceneManager.LoadScene("Singleplayer");
         PlayerPrefs.SetString("Score", "0");
@@ -30,13 +34,19 @@ public class MenuScreen : MonoBehaviour
         Numberoftries++;
     }
 
+    /**
+     * Loads the scene after the player returns to menu and resets the player's scores. Also adds to the number of tries
+    **/
+
     public void ReturntoMenu(){
         SceneManager.LoadScene("MenuScreen");
         PlayerPrefs.SetString("Score", "0");
         Enemy.score = 0;
         Numberoftries++;
     }
-
+    /**
+     * Quits the game.
+     **/
     public void quitgame(){
         Application.Quit();
     }

@@ -21,7 +21,10 @@ public class Playerhitbox : MonoBehaviour
     {
         
     }
-/*Defines the player hitbox*/
+/**
+ * Defines the player hitbox
+ * @param Collider2D The player hitbox
+ **/
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("breakable")){
             other.GetComponent<pot>().destroy();

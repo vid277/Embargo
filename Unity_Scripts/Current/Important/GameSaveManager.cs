@@ -1,3 +1,10 @@
+/* Creates a scriptable object that has tries, names, and scores
+
+@Author Vidyoot Senthilvenkatesh
+@Version 2/8/2022
+
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +16,9 @@ public class GameSaveManager : MonoBehaviour
 {
 
     public List<ScriptableObject> objects = new List<ScriptableObject>();
-    //Delets the persistent Data path
+    /**
+     * Delets the persistent Data path
+    **/
     public void ResetScriptables()
     {
         for(int i = 0; i < objects.Count; i ++)
@@ -22,7 +31,9 @@ public class GameSaveManager : MonoBehaviour
             }
         }
     }
-//loads and saves objects
+    /**
+     * loads and saves objects
+     **/
     private void OnEnable()
     {
         LoadScriptables();
@@ -32,12 +43,18 @@ public class GameSaveManager : MonoBehaviour
     {
         SaveScriptables();
     }
+<<<<<<< HEAD
 
     /**
     * Saves objects in a secure format
     * This allows us to save the scriptable objects in a given persistent data path
     * Writes the encrypted data to a file
     */
+=======
+    /**
+     * Saves objects in a binary format
+    **/
+>>>>>>> a44d25adacf308a51b6ee649e4d1bc4f75da3d34
     public void SaveScriptables()
     {
         for (int i = 0; i < objects.Count; i ++)
@@ -52,10 +69,16 @@ public class GameSaveManager : MonoBehaviour
     }
 
     /**
+<<<<<<< HEAD
     * Loads the previous user data
     * Opens, and reads from the file
     * Deserializes the file to restore prior user data
     */
+=======
+     * Loads objects from binary format
+    **/
+
+>>>>>>> a44d25adacf308a51b6ee649e4d1bc4f75da3d34
     public void LoadScriptables()
     { 
         for(int i = 0; i < objects.Count; i ++)

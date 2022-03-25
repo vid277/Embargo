@@ -35,6 +35,9 @@ public class Player_move : MonoBehaviour
     public Inventory playerInventory;
     public SpriteRenderer itemspriterecieved;
 
+/**
+ * Starts the animation for the player walking 
+ **/
     void Start()
     {
         //currentState = PlayerState.walk;
@@ -44,11 +47,16 @@ public class Player_move : MonoBehaviour
         animator.SetFloat("moveY", -1);
         transform.position = positiontostart.initialValue;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a44d25adacf308a51b6ee649e4d1bc4f75da3d34
     /*
     * Allows the player to move by recieving input through the Unity Input manager
     * Checks the state of the player, and makes the corresponding actions
     * Runs once per frame to update player actions live
     */
+
     void Update()
     {
         if(currentState == PlayerState.interact)
@@ -65,7 +73,10 @@ public class Player_move : MonoBehaviour
            updateAnimAndMove(); 
         }
     }
-    /*Allows the player to attack and animates it*/
+    /**
+     *Allows the player to attack and animates it. Also adds a delay so the player cannot move while attacking
+     *@return float This returns the amount of time the player cannot move after attacking.
+     **/
     private IEnumerator Attackco(){
         animator.SetBool("attacking", true);
         currentState = PlayerState.attack;
@@ -76,7 +87,9 @@ public class Player_move : MonoBehaviour
             currentState = PlayerState.walk;
         }
     }
-/*Animates the player when items are picked up and allows the player to pick up items*/
+/**
+ * Animates the player when items are picked up and allows the player to pick up items*
+ **/
     public void RaiseItem(){
         if (playerInventory.currentItem != null){
             if (currentState != PlayerState.interact){
@@ -92,7 +105,9 @@ public class Player_move : MonoBehaviour
             }
         }
     }
-/*Animates the player while moving*/
+/**
+ * Animates the player while moving and sets the state of the player to walking. Sets a different animation based on the direction the player is moving.
+ **/
     void updateAnimAndMove(){
         if (change != Vector3.zero){
             MoveCharacter();
@@ -105,7 +120,9 @@ public class Player_move : MonoBehaviour
             animator.SetBool("moving", false);
         }
     }
-    /*Changes the speed when the player moves*/
+    /**
+     * Changes the speed when the player moves
+     ***/
     void MoveCharacter()
     {  
         change.Normalize();
@@ -113,7 +130,11 @@ public class Player_move : MonoBehaviour
             transform.position + change * speed * Time.deltaTime
         );
     }
-/*Allows the player to take damage when hit and get knocked back*/
+/**
+ * Allows the player to take damage when hit and get knocked back. Kills the player if their health went to zero.
+ * @param KnockTime The time that the player is being knocked back.
+ * @param damage The damage that the player is taking.
+ **/
     public void knock(float KnockTime, float damage){
         currentHealth.runtimevalue -= damage;   
         playerHealthSignal.callmethod();
@@ -127,7 +148,11 @@ public class Player_move : MonoBehaviour
         }
         
     }
-
+/**
+ * This defines the knockback mechanic on the player and moves the player based on how much knockback they took
+ * @param KnockTime The time that the player is being knocked back for from the enemy
+ * @return KnockTime The time that the player will take knockback
+ **/
     private IEnumerator Knockbacking(float KnockTime){
         if(myRigidBody != null){
             //currentState = PlayerState.stagger;

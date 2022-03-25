@@ -20,14 +20,21 @@ public class SceneChange : MonoBehaviour
     public float fadeWait;
     public FloatValue heartcont;
     public FloatValue playerCurrentHealth;
-/*Creates the default scene*/
+
+
+    /**
+     * Creates the default scene
+     **/
     private void Awake(){
         if(FadeInPanel != null){
             GameObject panel = Instantiate(FadeInPanel, Vector3.zero, Quaternion.identity) as GameObject;
             Destroy(panel, 1);
         }
     }   
-/*Fades into a different scene when the player collides with the scene change collider*/
+    /**
+     * Fades into a different scene when the player collides with the scene change collider
+     * @param other This is the collider the player must contact to change the scene.
+     **/
     public void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player") && !other.isTrigger){
             playerobjectscriptable.initialValue = positionofplayer;

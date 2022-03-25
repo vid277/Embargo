@@ -30,9 +30,9 @@ public class PatrolLog : log
                 anim.SetBool("wakeup",true);
             }
         } else if (Vector3.Distance(target.position, transform.position) > chaserad){
-/*
-Moves enemies toward the palyer without activation the animation
-*/
+    /*
+    Moves enemies toward the palyer without activation the animation
+    */
             if (Vector3.Distance(transform.position, path[currentPoint].position) > roundingDistance){
 
                 Vector3 temp = Vector3.MoveTowards(transform.position, path[currentPoint].position, Speed * Time.deltaTime);

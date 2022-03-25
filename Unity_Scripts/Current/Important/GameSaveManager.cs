@@ -32,7 +32,12 @@ public class GameSaveManager : MonoBehaviour
     {
         SaveScriptables();
     }
-//Saves objects in a binary format
+
+    /**
+    * Saves objects in a secure format
+    * This allows us to save the scriptable objects in a given persistent data path
+    * Writes the encrypted data to a file
+    */
     public void SaveScriptables()
     {
         for (int i = 0; i < objects.Count; i ++)
@@ -45,7 +50,12 @@ public class GameSaveManager : MonoBehaviour
             file.Close();
         }
     }
-//Loads objects from binary format
+
+    /**
+    * Loads the previous user data
+    * Opens, and reads from the file
+    * Deserializes the file to restore prior user data
+    */
     public void LoadScriptables()
     { 
         for(int i = 0; i < objects.Count; i ++)

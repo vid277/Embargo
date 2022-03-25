@@ -9,7 +9,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//This is the enum
+/**
+* This controls the player states
+* The player is in one of these states at all times
+*/
 public enum PlayerState{
     walk,
     attack,
@@ -41,7 +44,6 @@ public class Player_move : MonoBehaviour
         animator.SetFloat("moveY", -1);
         transform.position = positiontostart.initialValue;
     }
-    
     /*
     * Allows the player to move by recieving input through the Unity Input manager
     * Checks the state of the player, and makes the corresponding actions

@@ -22,10 +22,24 @@ public class Leaderboard : MonoBehaviour
     public string score1;
     public string score2;
     public int tries;
+    public static List<Userscore> ScoreList = new List<Userscore>();
     
     private void Update() {
-        score1 = PlayerPrefs.GetString("Score");
+        score1 = Int32.Parse(PlayerPrefs.GetString("Score"));
+        usernames1 = PlayerPrefs.GetString("UsernameP1"); 
+        UserScore onescore = new UserScore(usernames1, score1);
+        ScoreList.Add(onescore);
     }
+
+    public List<Userscore> sortscore() {
+        return ScoreList.Sort((a,b) => Int.Compare(a.score, b.score)*-1);
+
+    }
+    
+
+
+
+
 
     void Awake() {
         tries = Int32.Parse(PlayerPrefs.GetString("Tries"));
@@ -35,6 +49,12 @@ public class Leaderboard : MonoBehaviour
         }
 
         StartCoroutine(someco());
+
+
+
+    //How to use sort list
+        List<UserScore> SortedScoreList = sortScore();
+
 
         tries = MenuScreen.Numberoftries; 
         if (PlayerPrefs.HasKey("UsernameP1")){

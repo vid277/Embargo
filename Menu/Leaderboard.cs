@@ -50,7 +50,7 @@ public class Leaderboard : MonoBehaviour
     //How to use sort list
         List<UserScore> SortedScoreList = sortScore();
 
-    /**
+    
         tries = MenuScreen.Numberoftries; 
         if (PlayerPrefs.HasKey("UsernameP1")){
                 usernames1 = PlayerPrefs.GetString("UsernameP1");
@@ -74,7 +74,7 @@ public class Leaderboard : MonoBehaviour
             }
         }
     }
-    **/
+    
     void storescore(){  
         //sortScore();
         if(tries <= 6){
@@ -84,7 +84,7 @@ public class Leaderboard : MonoBehaviour
             }
         }
     }
-    /**
+    
     void sortScore(){
          String temp;
          for (int j = 0; j < scorestore.Count - 1; j++) {
@@ -109,5 +109,5 @@ public class Leaderboard : MonoBehaviour
         yield return new WaitForSeconds(3f);
         showscore.SetActive(false);
     }
-    **/
+    
 }

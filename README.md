@@ -1,13 +1,13 @@
 # Computer-Game-and-Simulation:
 
 Embargo
-Computer Game and Simulation 2022
+SOftware Engineering Team 2023
 
 This is a level based dungeon game built using the Unity engine. This game is inspired by the 1980s game, "Dungeon Explorer."
 This game does not contain touch controls, and runs on Windows, Linux, and Mac OS.
 
 Publisher: Vidyoot Senthilvenkatesh
-Date: 1/14/2022
+Date: 1/14/2023
 
 ------------------------------------------------------------------------------------------------------------------------------
 Download:
